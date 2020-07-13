@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+// application.php
+
+require __DIR__.'/../vendor/autoload.php';
+
+use Kollex\Command\GetDataCommand;
+use Kollex\Command\IngestDataCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application('Kollex Data Muncher', '0.0.1');
+
+$application->add(new GetDataCommand());
+$application->add(new IngestDataCommand());
+
+$application->run();
