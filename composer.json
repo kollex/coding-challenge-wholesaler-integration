@@ -2,8 +2,8 @@
   "name": "kollex/coding-challenge-wholesaler-integration",
   "description": "kollex Coding Challenge: Wholesaler Assortment",
   "autoload": {
-    "psr-0": {
-      "kollex\\": "src/"
+    "psr-4": {
+      "Kollex\\": "src/"
     }
   },
   "require": {
