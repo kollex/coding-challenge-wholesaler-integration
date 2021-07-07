@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace Kollex;
 
-use Kollex\DataProvider\DataProviderInterface;
+use Kollex\Services\LoaderServiceInterface;
 
 class Application
 {
-    public function __construct(DataProviderInterface $productProvider)
+    public function __construct(LoaderServiceInterface $loaderService)
     {
-        $this->productProvider = $productProvider;
+        $this->productProvider = $loaderService;
     }
 
 
     public function run(): void
     {
-        print(json_encode($this->productProvider->getProducts(), JSON_PRETTY_PRINT));
+        $this->productProvider->load();
     }
 }

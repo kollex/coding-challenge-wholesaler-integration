@@ -20,7 +20,7 @@ class Container implements ContainerInterface
         }
         try {
             $reflection =  new ReflectionClass($this->deps[$name]);
-            $constructor = $reflection->getConstructor();
+
             if (!$reflection->isInstantiable()) {
                 if (!$reflection->isInterface() || substr($reflection->getName(), -9) !== 'Interface') {
                     throw new ContainerException("{$reflection->getName()} is not instantiable !");
@@ -30,6 +30,7 @@ class Container implements ContainerInterface
         } catch (ReflectionException $e) {
             throw new NotFoundException($e->getMessage());
         }
+        $constructor = $reflection->getConstructor();
         return $constructor === null ?
             $reflection->newInstanceArgs() :
             $reflection->newInstanceArgs($this->resolveArgs($constructor));
