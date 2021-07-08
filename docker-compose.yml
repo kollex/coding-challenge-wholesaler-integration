@@ -1,0 +1,23 @@
+version: "3.4"
+services:
+  wholesaler-api:
+    container_name: wholesaler-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+ 
+
+
+
+
+
+
+
+
+
+
