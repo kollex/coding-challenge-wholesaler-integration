@@ -1,0 +1,29 @@
+language: php
+os: linux
+cache: 
+  - directories:
+    - vendor
+php:
+- '7.3'
+stages:
+  - install
+  - lint
+  - test
+jobs:
+  include:
+    - stage: install
+      script: composer install --no-interaction
+    - stage: lint
+      script: composer lint
+    - stage: test
+      script: composer test
+       
+
+       
+            
+
+      
+    
+          
+           
+
