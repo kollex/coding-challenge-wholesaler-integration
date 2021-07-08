@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/naciriii/coding-challenge-wholesaler-integration.svg?branch=main)](https://travis-ci.com/naciriii/coding-challenge-wholesaler-integration)
 # kollex Coding Challenge – Wholesaler Integration
 
 kollex digitalizes the traditional B2B wholesale by building a digital beverage ecosystem. With our platform gastronomy 
