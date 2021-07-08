@@ -7,6 +7,12 @@
     },
     "files": ["src/helpers.php"]
   },
+  "autoload-dev": {
+    "psr-4": {
+        "Tests\\": "tests/"
+    },
+    "files": ["src/helpers.php"]
+  },
   "require": {
     "php": ">=7.0",
     "psr/container": "^2.0"
@@ -18,7 +24,7 @@
   },
   "scripts": {
     "serve": " php -S 0.0.0.0:8000 -t public -d display_errors=1",
-    "test": "phpunit tests",
+    "test": "phpunit tests --testdox",
     "lint": "php-cs-fixer fix src/ --dry-run",
     "lint:fix": "php-cs-fixer fix src/"
   }

@@ -13,7 +13,7 @@ class LoaderService extends AbstractLoaderService implements LoaderServiceInterf
      *
      * @var Product[]
      */
-    private $products;
+    private $products = [];
     /**
      * strategyFactory
      *
@@ -37,6 +37,18 @@ class LoaderService extends AbstractLoaderService implements LoaderServiceInterf
     {
         $this->strategyFactory = $strategyFactory;
     }
+
+    /**
+     * __get
+     *
+     * @param  string $name
+     * @return void
+     */
+    public function __get($name)
+    {
+        return property_exists($this, $name) ? $this->$name : null;
+    }
+
     /**
      * Initialize Strategies to use
      *
@@ -60,7 +72,7 @@ class LoaderService extends AbstractLoaderService implements LoaderServiceInterf
     public function run()
     {
         foreach ($this->loaders as $loader) {
-            $this->products[] = $loader->getProducts();
+            $this->products = array_merge($this->products, $loader->getProducts());
         }
     }
     /**
