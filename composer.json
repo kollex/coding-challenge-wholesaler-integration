@@ -17,7 +17,7 @@
   "suggest": {
   },
   "scripts": {
-    "serve": " php -S localhost:8000 -t public -d display_errors=1",
+    "serve": " php -S 0.0.0.0:8000 -t public -d display_errors=1",
     "test": "phpunit tests",
     "lint": "php-cs-fixer fix src/ --dry-run",
     "lint:fix": "php-cs-fixer fix src/"
