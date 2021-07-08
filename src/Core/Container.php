@@ -13,6 +13,14 @@ class Container implements ContainerInterface
 {
     private $deps = [];
 
+    /**
+     * Get Dependency
+     * The Interface/Class Binding convention is simple
+     * The Interface should be the Class name suffixed with Interface
+     *
+     * @param  string $name
+     * @return void
+     */
     public function get(string $name)
     {
         if (!isset($this->deps[$name])) {
