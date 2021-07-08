@@ -6,5 +6,11 @@ namespace Kollex\Services;
 
 interface FileReaderServiceInterface
 {
-    public function readFile(string $path);
+    /**
+     * Read file
+     *
+     * @param  string $path
+     * @return string
+     */
+    public function readFile(string $path): string;
 }

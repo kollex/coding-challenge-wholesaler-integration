@@ -7,6 +7,10 @@ namespace Kollex\Assortment;
 interface ProductInterface
 {
     /**
-     * To be implemented
+     * create new Product Instance Statically
+     *
+     * @param  array $data
+     * @return void
      */
+    public static function create(array $data);
 }

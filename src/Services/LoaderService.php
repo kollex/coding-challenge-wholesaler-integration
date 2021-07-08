@@ -8,25 +8,71 @@ use Kollex\DataProvider\FileLoaderStrategyFactory;
 
 class LoaderService extends AbstractLoaderService implements LoaderServiceInterface
 {
+    /**
+     * Products List
+     *
+     * @var Product[]
+     */
     private $products;
-    private $data;
+    /**
+     * strategyFactory
+     *
+     * @var FileLoaderStrategyFactory
+     */
     private $strategyFactory;
+    /**
+     * Loading Strategies
+     *
+     * @var DataProviderInterface[]
+     */
+    private $loaders = [];
 
+    /**
+     * __construct
+     *
+     * @param FileLoaderStrategyFactory $strategyFactory
+     * @return void
+     */
     public function __construct(FileLoaderStrategyFactory $strategyFactory)
     {
         $this->strategyFactory = $strategyFactory;
     }
+    /**
+     * Initialize Strategies to use
+     *
+     * @return void
+     */
     public function init()
     {
-        echo "Start </br>";
+        /**
+         * Start
+         */
+        $this->loaders = [
+            $this->strategyFactory->getLoadingStrategy('json'),
+            $this->strategyFactory->getLoadingStrategy('csv'),
+        ];
     }
+    /**
+     * Execute and extract and standardize products from files based on file types
+     *
+     * @return void
+     */
     public function run()
     {
-        $strategy = $this->strategyFactory->getLoadingStrategy("json");
-        $this->data = $strategy->getProducts();
+        foreach ($this->loaders as $loader) {
+            $this->products[] = $loader->getProducts();
+        }
     }
+    /**
+     * Display Products in JSON format
+     *
+     * @return void
+     */
     public function finish()
     {
-        echo json_encode($this->data["data"], JSON_PRETTY_PRINT);
+        echo json_encode($this->products, JSON_PRETTY_PRINT);
+        /**
+         * End
+         */
     }
 }
