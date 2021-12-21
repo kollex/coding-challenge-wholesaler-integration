@@ -14,8 +14,7 @@ class CsvFileReader implements FileReaderInterface
     public function __construct(
         private string $delimiter = ';',
         private int $maxLineLength = 1000
-    )
-    {
+    ) {
     }
 
     /**
