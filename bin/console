@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Kollex\App\Commands\WholesalerProductsImporter;
+use Kollex\App\Services\ProductsImporter\ProductsImporter;
+use Symfony\Component\Console\Application;
+
+$app = new Application();
+$app->add(new WholesalerProductsImporter(new ProductsImporter()));
+$app->run();

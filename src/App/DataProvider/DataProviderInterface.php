@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Kollex\DataProvider;
+namespace Kollex\App\DataProvider;
 
 use Kollex\Assortment\ProductInterface;
 
