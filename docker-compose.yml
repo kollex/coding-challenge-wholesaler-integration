@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  kollex-mysql:
+    container_name: kollex-mysql
+    image: mysql:8.0
+    command: '--default-authentication-plugin=mysql_native_password'
+    environment:
+      MYSQL_ROOT_PASSWORD: rootsecret
+      MYSQL_PASSWORD: secret
+      MYSQL_USER: kollex
+      MYSQL_DATABASE: kollex_php_coding_challenge
+    ports:
+      - 33060:3306
+    volumes:
+      - kollex_mysql_data:/var/lib/mysql
+    networks:
+      - kollex
+
+volumes:
+  kollex_mysql_data:
+    driver: local
+
+networks:
+    kollex:
+        driver: bridge
